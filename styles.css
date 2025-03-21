@@ -50,6 +50,8 @@ body {
     "sidebar content" 2fr/ 300px 2fr;
 }
 
+/* SIDEBAR */
+
 .sidebar {
     background-color: var(--primary-color);
     font-weight: bold;
@@ -101,14 +103,111 @@ a:hover {
     text-decoration: underline;
 }
 
+/* HEADER */
+
 .header{
+   grid-area: header;
+   font-weight: bold;
+   display: grid;
+   grid-template: "search-user" min-content "welcome-buttons" min-content / 2fr 1fr;
+   padding: 16px 48px;
+   align-items: center;
+   gap: 24px;
+
+}
+
+.header > * {
     display: grid;
-    grid-column-start: 3;
-    grid-column-end: 7;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    box-shadow: 5px 5px 12px #75e6dbaf;
-    z-index: 2;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: inherit;
+}
+
+.search-area {
+    grid-template-columns: min-content 1fr;
+    justify-items: left;
+}
+
+.search-area {
+    font-size: 1.1rem;
+}
+
+.search-area button {
+    font-size: 1.2em;
+}
+
+.header svg {
+    height: 1.5rem;
+}
+
+.search-area input {
+    justify-self: stretch;
+    max-width: 600px;
+    padding: 4px 16px;
+    border: none;
+    background-color: var(--bg-color);
+    border-radius: 500px;
+    font-family: inherit;
+}
+
+.user-area {
+    grid-auto-columns: fit-content;
+    justify-items: right;
+    justify-content: right;
+    gap: 24px;
+}
+
+.profile-pic {
+    height: 2.6rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+}
+
+.user-pic {
+    background-image: url("./img/cat.png");
+    background-color: var(--accent-color);
+}
+
+.welcome-msg {
+    grid-auto-columns: min-content 1fr;
+    justify-items: left;
+}
+
+.welcome-msg .profile-pic {
+    height: 4rem;
+}
+
+.welcome-msg .greeting {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+}
+
+.welcome-msg .username {
+    font-size: 1.4rem;
+}
+
+.buttons {
+    justify-items: center;
+    justify-content: end;
+}
+
+.header button {
     display: grid;
-    grid-template: 62.5px 62.5px 62.5px 62.5px / 62.5px 62.5px;
+    place-items: center;
+}
+
+.header img {
+    background-color: #f9c843;
+}
+
+.header .buttons button {
+    width: 48px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.9rem;
+    padding: 12px 24px;
+    border-radius: 500px;
 }
